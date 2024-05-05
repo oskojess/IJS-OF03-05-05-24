@@ -20,7 +20,7 @@ describe("desafio", () => {
       valorHora
     );
     const valorEsperado = 6720;
-    expect(resultado).toBe(valorEsperado);
+    expect(resultado).toEqual(valorEsperado);
   });
 
   test("Pacote premium", () => {
@@ -30,6 +30,6 @@ describe("desafio", () => {
       valorHora
     );
     const valorEsperado = 15600;
-    expect(resultado).toBe(valorEsperado);
+    expect(resultado).toEqual(valorEsperado);
   });
 });
