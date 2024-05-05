@@ -1,9 +1,23 @@
-const { HORAS_POR_FUNCIONALIDADE } = require('../constantes/constantes');
+function calcularHorasDeProjeto(listaDeFuncionalidades) {
+  let totalDeHoras = 0;
 
-const calcularHorasDeProjeto = (listaDeFuncionalidades) => (
-  listaDeFuncionalidades
-    .map(func => HORAS_POR_FUNCIONALIDADE[func])
-    .reduce((sum, currentValue) => sum + currentValue, 0)
-);
+  listaDeFuncionalidades.forEach(funcionalidade => {
+      switch(funcionalidade) {
+          case "responsivo":
+              totalDeHoras += 16;
+              break;
+          case "formulario":
+              totalDeHoras += 16;
+              break;
+          case "otimizacao_seo":
+              totalDeHoras += 16;
+              break;
+          default:
+              break;
+      }
+  });
 
-exports.calcularHorasDeProjeto = calcularHorasDeProjeto;
+  return totalDeHoras;
+}
+
+module.exports = { calcularHorasDeProjeto };

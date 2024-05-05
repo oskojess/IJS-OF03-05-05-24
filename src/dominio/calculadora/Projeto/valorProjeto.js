@@ -13,7 +13,13 @@ const calcularValorTotalProjeto = (funcionalidades, valorHora) => {
 
   const valorBase = calcularValorBaseProjeto(totalDeHorasPorProjeto, valorHora);
 
-  return Math.round(valorBase * TAXAS_CONTRATUAIS_POR_PACOTE[pacote]);
+  // Verifique se a taxa contratual está sendo aplicada corretamente
+  const taxaContratual = TAXAS_CONTRATUAIS_POR_PACOTE[pacote];
+  if (taxaContratual === undefined) {
+    throw new Error(`Taxa contratual não encontrada para o pacote: ${pacote}`);
+  }
+
+  return Math.round(valorBase * (1 + taxaContratual));
 }
 
 exports.calcularValorTotalProjeto = calcularValorTotalProjeto;

@@ -1,13 +1,12 @@
-const {
-  HORAS_POR_DIA,
-  DIAS_UTEIS_NO_MES
-} = require('../constantes/constantes')
+function calcularValorPorHora(rendaMensal) {
+  const horasPorDia = 8;
+  const diasPorSemana = 5;
+  const semanasPorMes = 4;
 
-const calcularValorPorHora = (rendaMensal) => {
-  const horasTrabalhadasPorMes = (HORAS_POR_DIA * DIAS_UTEIS_NO_MES);
-  const valorPorHora = rendaMensal / horasTrabalhadasPorMes;
+  const totalDeHorasNoMes = horasPorDia * diasPorSemana * semanasPorMes;
+  const valorPorHora = rendaMensal / totalDeHorasNoMes;
 
-  return Math.ceil(valorPorHora);
-};
+  return Math.round(valorPorHora);
+}
 
-exports.calcularValorPorHora = calcularValorPorHora;
+module.exports = { calcularValorPorHora };
